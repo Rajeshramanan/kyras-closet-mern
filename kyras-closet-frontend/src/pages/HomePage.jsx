@@ -13,7 +13,7 @@
   import Footer from '../components/Footer'; 
   // Note: Container is not imported here to avoid conflicting with internal layout
 
-  const BASE_URL = 'http://localhost:5000/api/products'; 
+  const BASE_URL = 'https://kyras-closet-api.onrender.com/api/products'; 
 
   const HomePage = () => {
       const [products, setProducts] = useState([]);
