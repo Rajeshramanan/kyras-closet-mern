@@ -1,0 +1,135 @@
+/* kyras-closet-frontend/src/index.css */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* --- Global Styles & Font --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Scrolling Utility --- */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  gap: 20px; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.horizontal-scroll-container > div {
+    flex-shrink: 0;
+}
+
+
+/* --- Design Replication Utilities --- */
+.hero-image {
+  background-image: url('/hero_banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 85vh; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
+  position: relative;
+}
+.hero-text {
+    font-family: 'Times New Roman', serif;
+    font-size: 5rem;
+    color: #A15843; 
+    font-style: italic;
+    font-weight: 700;
+}
+.kyra-logo-box {
+  display: inline-block;
+  padding: 15px 15px;
+  margin-right: 20px;
+  border: 2px dashed #FF784B; 
+  border-radius: 50% 20% 70% 30% / 10% 80% 30% 70%; 
+  text-align: center;
+}
+.kyra-logo-box h3 {
+  color: #FF784B; 
+  font-weight: 700;
+  font-size: 1.2rem; 
+  margin: 0;
+}
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #FF784B; 
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+.footer-container {
+    background-color: #555555; 
+}
+.product-card-rating {
+    background-color: #FF784B;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #A15843;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+}
+.review-card-wrapper {
+    background-color: #FEE7DD;
+    border-radius: 8px;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 15px;
+}
+.review-card-wrapper .card {
+    background-color: #FFFFFF;
+    border: none;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.review-rating-badge {
+    background-color: #FF784B;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
