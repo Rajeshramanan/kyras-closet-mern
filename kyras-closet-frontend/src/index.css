@@ -133,3 +133,20 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+@media (max-width: 768px) {
+  /* Fix 1: Reduce the height of the Hero Banner on mobile screens */
+  .hero-image {
+    height: 60vh; /* Changed from 85vh to 60vh (or even 50vh) */
+    background-position: center bottom; /* Adjusts focus to the model's body */
+  }
+
+.product-item-mobile-2col {
+    /* Sets width to 48%, ensuring two items fit cleanly with margin in between */
+    width: 48% !important; 
+    margin: 0 1% 20px 1% !important; /* Small margin for centering and spacing */
+    min-width: 0 !important; /* Override min-width on mobile */
+  }
+
+
+}

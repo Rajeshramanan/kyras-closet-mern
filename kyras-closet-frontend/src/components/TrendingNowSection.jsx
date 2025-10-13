@@ -1,9 +1,9 @@
-// kyras-closet-frontend/src/components/TrendingNowSection.jsx - FULLY SELF-CONTAINED CODE
+// kyras-closet-frontend/src/components/TrendingNowSection.jsx - FINAL CORRECTED CODE
 
 import React from 'react';
 import { FaHeart, FaStar } from 'react-icons/fa';
 
-// Hardcoded data directly in the component file
+// Hardcoded data (as requested)
 const TRENDING_PRODUCTS = [
     { name: 'Menmai', price: 800, rating: 4.5, image: '/images/menmai_maroon.jpg' },
     { name: 'Ilai', price: 900, rating: 4.5, image: '/images/ilai_purple.jpg' },
@@ -13,7 +13,7 @@ const TRENDING_PRODUCTS = [
     { name: 'Cotton Candy', price: 600, rating: 4.5, image: '/images/cotton_candy.jpg' },
 ];
 
-// Reusable Card with internal CSS
+// ProductCard component (remains the same)
 const ProductCard = ({ product }) => (
     <div style={{
         backgroundColor: 'white',
@@ -53,23 +53,24 @@ const TrendingNowSection = () => {
         <div style={{ padding: '0 20px', margin: '0 auto', maxWidth: '1200px' }}>
             <h2 className="section-heading">Trending Now</h2>
             
-            {/* FINAL GUARANTEED FLEXBOX LAYOUT */}
+            {/* Flexbox container for wrapping */}
             <div 
                 style={{ 
                     display: 'flex', 
                     flexWrap: 'wrap', 
-                    justifyContent: 'flex-start',
-                    width: '100%', // Use full available width
+                    justifyContent: 'center', // Centering cards
+                    width: '100%', 
                     boxSizing: 'border-box'
                 }}
             >
                 {TRENDING_PRODUCTS.map((product, index) => (
                     <div 
                         key={index} 
-                        // Set width slightly under 1/3 and use margin to create the gap
+                        // Apply Mobile Class here (it will override desktop styles below 768px)
+                        className="product-item-mobile-2col" 
                         style={{ 
                             width: '32%', 
-                            marginRight: (index % 3 !== 2) ? '2%' : '0', // 2% margin on first two items in a row
+                            marginRight: (index % 3 !== 2) ? '2%' : '0', // Desktop margin
                             marginBottom: '30px', 
                             minWidth: '300px',
                             boxSizing: 'border-box'
