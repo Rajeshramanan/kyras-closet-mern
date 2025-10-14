@@ -1,9 +1,7 @@
-// kyras-closet-frontend/src/components/TrendingNowSection.jsx - FINAL CORRECTED CODE
-
 import React from 'react';
 import { FaHeart, FaStar } from 'react-icons/fa';
 
-// Hardcoded data (as requested)
+
 const TRENDING_PRODUCTS = [
     { name: 'Menmai', price: 800, rating: 4.5, image: '/images/menmai_maroon.jpg' },
     { name: 'Ilai', price: 900, rating: 4.5, image: '/images/ilai_purple.jpg' },
@@ -13,7 +11,7 @@ const TRENDING_PRODUCTS = [
     { name: 'Cotton Candy', price: 600, rating: 4.5, image: '/images/cotton_candy.jpg' },
 ];
 
-// ProductCard component (remains the same)
+
 const ProductCard = ({ product }) => (
     <div style={{
         backgroundColor: 'white',
@@ -30,7 +28,7 @@ const ProductCard = ({ product }) => (
                 style={{ width: '100%', height: '350px', objectFit: 'cover' }} 
                 onError={(e) => { e.target.onerror = null; e.target.src="/placeholder.png"; e.target.style.backgroundColor='#f0f0f0' }}
             />
-            {/* Heart/Favorite Icon */}
+         
             <button style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(255,255,255,0.7)', border: 'none', borderRadius: '50%', padding: '10px', cursor: 'pointer' }}>
                 <FaHeart size={16} color="#666" />
             </button>
@@ -53,12 +51,12 @@ const TrendingNowSection = () => {
         <div style={{ padding: '0 20px', margin: '0 auto', maxWidth: '1200px' }}>
             <h2 className="section-heading">Trending Now</h2>
             
-            {/* Flexbox container for wrapping */}
+           
             <div 
                 style={{ 
                     display: 'flex', 
                     flexWrap: 'wrap', 
-                    justifyContent: 'center', // Centering cards
+                    justifyContent: 'center', 
                     width: '100%', 
                     boxSizing: 'border-box'
                 }}
@@ -66,11 +64,11 @@ const TrendingNowSection = () => {
                 {TRENDING_PRODUCTS.map((product, index) => (
                     <div 
                         key={index} 
-                        // Apply Mobile Class here (it will override desktop styles below 768px)
+                      
                         className="product-item-mobile-2col" 
                         style={{ 
                             width: '32%', 
-                            marginRight: (index % 3 !== 2) ? '2%' : '0', // Desktop margin
+                            marginRight: (index % 3 !== 2) ? '2%' : '0', 
                             marginBottom: '30px', 
                             minWidth: '300px',
                             boxSizing: 'border-box'

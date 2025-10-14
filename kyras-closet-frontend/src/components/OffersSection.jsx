@@ -1,9 +1,7 @@
-// kyras-closet-frontend/src/components/OffersSection.jsx - FINAL CORRECTED CODE
-
 import React from 'react';
 import { FaHeart, FaStar } from 'react-icons/fa';
 
-// Hardcoded data (as requested)
+
 const OFFERS_PRODUCTS = [
     { name: 'Kalyani', price: 1200, rating: 4.5, image: '/images/kalyani_saree.jpg', discount: '10%' },
     { name: 'Akira (Green)', price: 700, rating: 4.5, image: '/images/akira_green.jpg', discount: '20%' }, 
@@ -13,7 +11,7 @@ const OFFERS_PRODUCTS = [
     { name: 'White Candy', price: 3000, rating: 4.5, image: '/images/white_candy.jpg', discount: '5%' },
 ];
 
-// ProductCard component (remains the same)
+
 const ProductCard = ({ product }) => (
     <div style={{
         backgroundColor: 'white',
@@ -24,7 +22,7 @@ const ProductCard = ({ product }) => (
         marginBottom: '20px',
     }}>
         <div style={{ position: 'relative' }}>
-            {/* Discount Badge */}
+            
             {product.discount && <div style={{ position: 'absolute', top: '10px', left: '10px', background: '#A15843', color: 'white', padding: '3px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', zIndex: 10 }}>{product.discount} Off</div>}
             
             <img 
@@ -33,7 +31,7 @@ const ProductCard = ({ product }) => (
                 style={{ width: '100%', height: '350px', objectFit: 'cover' }} 
                 onError={(e) => { e.target.onerror = null; e.target.src="/placeholder.png"; e.target.style.backgroundColor='#f0f0f0' }}
             />
-            {/* Heart/Favorite Icon */}
+           
             <button style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(255,255,255,0.7)', border: 'none', borderRadius: '50%', padding: '10px', cursor: 'pointer' }}>
                 <FaHeart size={16} color="#666" />
             </button>
@@ -56,12 +54,12 @@ const OffersSection = () => {
         <div style={{ padding: '0 20px', margin: '0 auto', maxWidth: '1200px' }}>
             <h2 className="section-heading">Offers</h2>
             
-            {/* Flexbox container for wrapping */}
+            
             <div 
                 style={{ 
                     display: 'flex', 
                     flexWrap: 'wrap', 
-                    justifyContent: 'center', // Centering cards
+                    justifyContent: 'center', 
                     width: '100%', 
                     boxSizing: 'border-box'
                 }}
@@ -69,11 +67,11 @@ const OffersSection = () => {
                 {OFFERS_PRODUCTS.map((product, index) => (
                     <div 
                         key={index} 
-                        // Apply Mobile Class here (it will override desktop styles below 768px)
+                        
                         className="product-item-mobile-2col"
                         style={{ 
                             width: '32%', 
-                            marginRight: (index % 3 !== 2) ? '2%' : '0', // Desktop margin
+                            marginRight: (index % 3 !== 2) ? '2%' : '0', 
                             marginBottom: '30px', 
                             minWidth: '300px',
                             boxSizing: 'border-box'

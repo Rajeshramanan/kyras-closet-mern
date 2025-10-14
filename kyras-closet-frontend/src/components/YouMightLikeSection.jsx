@@ -1,9 +1,7 @@
-// kyras-closet-frontend/src/components/YouMightLikeSection.jsx - FULLY SELF-CONTAINED CODE
-
 import React from 'react';
 import { FaHeart, FaStar } from 'react-icons/fa';
 
-// --- HARDCODED DATA (Replaces props/backend connection) ---
+
 const MIGHT_LIKE_PRODUCTS = [
     { name: 'Minnal', price: 5000, rating: 4.5, image: '/images/minnal.jpg', discount: '15%' },
     { name: 'Shifali', price: 5000, rating: 4.5, image: '/images/shifali.jpg', discount: '10%' },
@@ -17,7 +15,7 @@ const MIGHT_LIKE_PRODUCTS = [
     { name: 'Jade', price: 2100, rating: 4.1, image: '/images/white_candy.jpg', discount: '7%' },
 ];
 
-// --- INTEGRATED PRODUCT CARD (Uses internal CSS) ---
+
 const ProductCard = ({ product }) => {
     const { name, price, rating, image, discount } = product;
     return (
@@ -30,7 +28,7 @@ const ProductCard = ({ product }) => {
             marginBottom: '20px',
         }}>
             <div style={{ position: 'relative' }}>
-                {/* Discount Badge */}
+              
                 {discount && <div style={{ position: 'absolute', top: '10px', left: '10px', background: '#A15843', color: 'white', padding: '3px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', zIndex: 10 }}>{discount} Off</div>}
                 
                 <img 
@@ -39,7 +37,7 @@ const ProductCard = ({ product }) => {
                     style={{ width: '100%', height: '350px', objectFit: 'cover' }} 
                     onError={(e) => { e.target.onerror = null; e.target.src="/placeholder.png"; e.target.style.backgroundColor='#f0f0f0' }}
                 />
-                {/* Heart/Favorite Icon */}
+               
                 <button style={{ position: 'absolute', top: '10px', right: '10px', background: 'rgba(255,255,255,0.7)', border: 'none', borderRadius: '50%', padding: '10px', cursor: 'pointer' }}>
                     <FaHeart size={16} color="#666" />
                 </button>
@@ -58,7 +56,7 @@ const ProductCard = ({ product }) => {
 };
 
 
-// --- MAIN COMPONENT ---
+//  MAIN COMPONENT 
 const YouMightLikeSection = () => {
     return (
         <div style={{ padding: '0 20px', margin: '0 auto', maxWidth: '1200px' }}>

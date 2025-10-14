@@ -1,4 +1,4 @@
-// kyras-closet-frontend/src/components/About.jsx - FINAL LOGO POSITION FIX
+
 
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
@@ -12,10 +12,10 @@ const About = () => {
       
       <Row className="align-items-center"> 
         
-        {/* Left Column (Text Content) */}
+      
         <Col md={6}>
             
-            {/* 1. MODEL IMAGE: Float right on mobile (d-md-none hides large desktop image) */}
+            
             <Image 
                 src={ABOUT_IMAGE} 
                 alt="About Kyra Model" 
@@ -29,19 +29,19 @@ const About = () => {
                 }}
             />
             
-            {/* 2. LOGO: Float left on mobile and PUSH DOWN */}
+            
             <div 
                 className="kyra-logo-box float-start me-3 mb-3"
-                // --- FINAL FIX: Add margin-top to push the logo down vertically on small screens ---
+                
                 style={{ marginTop: '100px',marginLeft: '50px'}} 
             >
                 <h3>Kyra's Closet</h3>
             </div>
             
-            {/* 3. CLEARFIX: Ensures the text below starts AFTER the floating elements */}
+            
             <div className="clearfix"></div> 
             
-            {/* 4. QUOTE: Flows cleanly below the floating elements */}
+            
             <p 
                 style={{ 
                     fontSize: '1.2rem', 
@@ -55,7 +55,7 @@ const About = () => {
             </p>
             
 
-            {/* Main Paragraph Text */}
+            
             <p style={{ lineHeight: '1.8', color: '#555', fontSize: '0.95rem' }}>
                 At Kyra's Closet, we believe style should be effortless yet unforgettable. 
                 From chic casuals to statement pieces, our collections are designed to 
@@ -77,7 +77,7 @@ const About = () => {
             </Button>
         </Col>
 
-        {/* Right Column (Desktop Image - Hidden on mobile) */}
+        {/* Desktop Image - nomobile)*/}
         <Col md={6} className="text-center d-none d-md-block">
           <Image 
             src={ABOUT_IMAGE} 
