@@ -1,38 +1,40 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* --- Global Styles & Font --- */
+/* =========================================================
+   Kyra's Closet — global styles (updated + responsive fixes)
+   ========================================================= */
+
+/* --- Global --- */
+:root{
+  --peach: #FFB895;
+  --accent: #FF784B;
+  --accent-dark: #A15843;
+  --text: #333;
+  --muted: #666;
+  --card-bg: #fff;
+}
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #f8f8f8;
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
+/* root container */
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* --- Manual Scrolling Utility (USED BY OLDER SECTIONS) --- */
-.horizontal-scroll-container {
-  display: flex;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  gap: 20px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.horizontal-scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.horizontal-scroll-container > div {
-  flex-shrink: 0;
-}
-
-/* --- Hero Section --- */
+/* =========================================================
+   HERO
+   ========================================================= */
 .hero-image {
   background-image: url('/hero_banner.jpg');
   background-size: cover;
@@ -44,7 +46,6 @@ body {
   padding-left: 10%;
   position: relative;
 }
-
 .hero-text {
   font-family: 'Times New Roman', serif;
   font-size: 5rem;
@@ -53,246 +54,33 @@ body {
   font-weight: 700;
 }
 
-/* --- Kyra Logo Bubble --- */
-.kyra-logo-box {
-  display: inline-block;
-  padding: 15px 15px;
-  margin-right: 20px;
-  border: 2px dashed #FF784B;
-  border-radius: 50% 20% 70% 30% / 10% 80% 30% 70%;
-  text-align: center;
-}
-
-.kyra-logo-box h3 {
-  color: #FF784B;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-/* --- Section Heading --- */
-.section-heading {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #FF784B;
-  text-align: center;
-  margin-bottom: 30px;
-  margin-top: 50px;
-}
-
-/* --- Footer --- */
-.footer-container {
-  background-color: #555555;
-}
-
-/* --- Rating Badge --- */
-.product-card-rating {
-  background-color: #FF784B;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-
-/* --- Discount Badge --- */
-.discount-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #A15843;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 10;
-}
-
-/* --- Review Cards --- */
-.review-card-wrapper {
-  background-color: #FEE7DD;
-  border-radius: 8px;
-  min-width: 350px;
-  max-width: 350px;
-  padding: 15px;
-}
-
-.review-card-wrapper .card {
-  background-color: #FFFFFF;
-  border: none;
-  height: 100%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.review-rating-badge {
-  background-color: #FF784B;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* --- Navbar Hover Effects --- */
-.navbar-nav .nav-link {
-  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
-  font-weight: 500;
-  color: #333 !important;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: 2px solid transparent;
-}
-
-.navbar-nav .nav-link.active {
-  color: #333 !important;
-  font-weight: 500 !important;
-  border-bottom: 2px solid transparent !important;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #FF5100 !important;
-  border-bottom: 2px solid #FF5100;
-}
-
-.navbar-nav .nav-link.active:hover {
-  color: #FF5100 !important;
-  border-bottom: 2px solid #FF5100 !important;
-}
-
-/* --- Product Grid (used in Trending & Offers) --- */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  justify-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ========================================================= */
-/* === AUTO SCROLL FOR FEATURED COLLECTIONS (works perfect) === */
-/* ========================================================= */
-
-.auto-scroll-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.auto-scroll-track {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  animation: featuredAutoScroll 25s linear infinite;
-}
-
-@keyframes featuredAutoScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ========================================================= */
-/* === AUTO SCROLL FOR "YOU MIGHT LIKE" CARDS — FIXED === */
-/* ========================================================= */
-
-.auto-scroll-wrapper-cards {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 14px;
-  box-sizing: border-box;
-}
-
-.auto-scroll-track-cards {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start !important;
-  animation: autoScrollCards 22s linear infinite;
-  box-sizing: border-box;
-}
-
-/* pause on hover */
-.auto-scroll-wrapper-cards:hover .auto-scroll-track-cards {
-  animation-play-state: paused;
-}
-
-@keyframes autoScrollCards {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* Ensure scroll items maintain size and don't clip */
-.auto-scroll-track-cards > div {
-  min-width: 300px !important;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-/* Prevent image clipping */
-.auto-scroll-track-cards img {
-  display: block;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-/* ========================================================= */
-/* --- RESPONSIVE FIXES --- */
-/* ========================================================= */
-
-@media (max-width: 768px) {
-  .hero-image {
-    height: 60vh;
-    background-position: center bottom;
-  }
-
-  .product-item-mobile-2col {
-    width: 48% !important;
-    margin: 0 1% 20px 1% !important;
-    min-width: 0 !important;
-  }
-}
-
-/* ===== Header: match original peach design ===== */
+/* =========================================================
+   HEADER (keeps original peach design + responsive)
+   ========================================================= */
 .app-header {
-  background: #f7b9a0; /* peach-ish, adjust if your original was slightly different */
+  background: var(--peach);
   padding: 14px 0;
-  border-bottom: none;
-  box-shadow: none;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: none;
+  box-shadow: none;
 }
-
 .app-header .container-inner {
-  max-width: 1400px; /* preserve wide layout */
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  padding: 0 16px;
 }
-
-/* Logo area (left) */
 .app-header .logo {
   font-size: 20px;
   color: #000;
   font-weight: 700;
   text-decoration: none;
-  padding-left: 16px;
 }
-
-/* Center nav */
 .app-header .nav-center {
   display: flex;
   gap: 28px;
@@ -300,46 +88,33 @@ body {
   justify-content: center;
   flex: 1;
 }
-
 .app-header .nav-center a {
   color: #2b2b2b;
   text-decoration: none;
   font-weight: 600;
   padding: 6px 8px;
 }
-
-.app-header .nav-center a:hover {
-  color: #111;
-  opacity: 0.9;
-}
-
-/* Right icons */
+.app-header .nav-center a:hover { color: #111; opacity: 0.95; }
 .app-header .icons-right {
   display: flex;
   gap: 16px;
   align-items: center;
-  padding-right: 16px;
 }
-
 .app-header .icon-btn {
-  position: relative;        /* needed so the badge can be placed relative to this button */
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
   cursor: pointer;
-  color: #111;               /* icon color */
-  text-decoration: none;
+  color: #111;
   font-size: 18px;
   background: transparent;
   border-radius: 6px;
+  border: none;
 }
-
-.app-header .icon-btn:hover {
-  background: rgba(255,255,255,0.06);
-}
-
+.app-header .icon-btn:hover { background: rgba(255,255,255,0.06); }
 .app-header .icon-badge {
   position: absolute;
   top: -6px;
@@ -353,38 +128,186 @@ body {
   font-size: 11px;
   font-weight: 700;
   border-radius: 12px;
-  background: #222;       /* dark badge */
+  background: #222;
   color: #fff;
-  border: 2px solid rgba(255,255,255,0.9); /* subtle thin border so badge pops on peach */
-  box-sizing: border-box;
+  border: 2px solid rgba(255,255,255,0.9);
   line-height: 1;
+  box-sizing: border-box;
 }
-
 .app-header .icon-badge.light {
   background: #fff;
   color: #111;
   border: 1px solid rgba(0,0,0,0.06);
 }
 
-/* smaller screens tweak so badges don't overflow */
-@media (max-width: 600px) {
-  .app-header .icon-btn { width: 34px; height: 34px; font-size: 16px; }
-  .app-header .icon-badge { top: -5px; right: -6px; font-size: 10px; min-width:16px; height:16px; padding:0 5px; }
+/* =========================================================
+   NAV hover / global small utilities
+   ========================================================= */
+.navbar-nav .nav-link {
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  font-weight: 500;
+  color: #333 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 2px solid transparent;
+}
+.navbar-nav .nav-link:hover { color: #FF5100 !important; border-bottom: 2px solid #FF5100; }
+
+/* =========================================================
+   PRODUCT CARDS / GRID
+   ========================================================= */
+
+/* product-grid used for desktop card grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  width: 100%;
 }
 
-/* Small screens: keep layout compact */
-@media (max-width: 900px) {
-  .app-header .nav-center { gap: 14px; }
-  .app-header .logo { font-size: 18px; padding-left: 12px; }
-  .app-header .icons-right { gap: 12px; padding-right: 12px; }
+/* wrappers used across components (consistent naming) */
+.product-item-mobile-2col {
+  /* this class is added to the outer item wrapper; let CSS decide widths */
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-/* small search input responsive tweak */
-@media (max-width: 560px) {
-  .section-heading { font-size: 1.6rem; }
+/* product card base */
+.product-card-flex,
+.product-card-inner,
+.product-card {
+  width: 100% !important;
+  background: var(--card-bg);
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== Search / Results grid & flexible card fix ===== */
+/* card image */
+.product-card-inner img,
+.product-card img,
+.card img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 5;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* card body */
+.product-card-inner .p-3,
+.product-card .p-3 {
+  padding: 12px 14px !important;
+}
+
+/* rating badge style */
+.product-card-rating {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* discount badge */
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--accent-dark);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  z-index: 10;
+}
+
+/* heart/save button (top-right) */
+.product-card-inner > div > button[aria-label] {
+  /* top-right heart - keep consistent look */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* add-to-cart / save buttons container */
+.product-card-inner .actions-row,
+.product-card .actions-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* small button tweaks */
+.product-card-inner button,
+.product-card button {
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   HORIZONTAL SCROLL / AUTO-SCROLL TRACKS
+   ========================================================= */
+
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  gap: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.horizontal-scroll-container::-webkit-scrollbar { display: none; }
+.horizontal-scroll-container > div { flex-shrink: 0; }
+
+/* Featured auto scroll */
+.auto-scroll-wrapper { width: 100%; overflow: hidden; position: relative; }
+.auto-scroll-track { display: flex; gap: 20px; align-items: flex-start; animation: featuredAutoScroll 25s linear infinite; }
+@keyframes featuredAutoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* You Might Like auto scroll (improved) */
+.auto-scroll-wrapper-cards { width: 100%; overflow: hidden; position: relative; padding-bottom: 14px; box-sizing: border-box; }
+.auto-scroll-track-cards { display: flex; gap: 20px; align-items: flex-start; animation: autoScrollCards 22s linear infinite; box-sizing: border-box; }
+.auto-scroll-wrapper-cards:hover .auto-scroll-track-cards { animation-play-state: paused; }
+@keyframes autoScrollCards { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.auto-scroll-track-cards > div { min-width: 300px !important; box-sizing: border-box; display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; }
+.auto-scroll-track-cards img { display:block; width:100%; height:300px; object-fit:cover; }
+
+/* =========================================================
+   SEARCH / RESULTS GRID (fixed so cards wrap nicely)
+   ========================================================= */
+.page-container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .results-grid {
   display: grid !important;
   gap: 20px;
@@ -394,30 +317,147 @@ body {
   box-sizing: border-box;
 }
 
-/* Ensure the outer search container uses most available width */
-.page-container-wide {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  box-sizing: border-box;
-  width: 100%;
+/* ensure product card inside results uses full width */
+.product-card-flex { width: 100% !important; box-sizing: border-box; display:block; }
+
+/* =========================================================
+   REVIEW CARDS
+   ========================================================= */
+.review-card-wrapper {
+  background-color: #FEE7DD;
+  border-radius: 8px;
+  min-width: 280px;
+  max-width: 350px;
+  padding: 15px;
+}
+.review-card-wrapper .card {
+  background-color: #FFFFFF;
+  border: none;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.review-rating-badge {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* Make ProductCard wrapper flexible so grid controls its width */
-.product-card-flex {
-  width: 100% !important;
+/* =========================================================
+   CART (responsive)
+   ========================================================= */
+.cart-container { max-width: 1100px; margin: 30px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
+.cart-items { display: grid; gap: 12px; }
+
+/* each cart row */
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
   box-sizing: border-box;
-  display: block;
+}
+.cart-item .ci-image { width: 110px; height: 110px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.cart-item .ci-body { flex: 1; display:flex; flex-direction:column; gap:8px; min-width:0; }
+.qty-controls { display:inline-flex; gap:8px; align-items:center; margin-top:6px; }
+.qty-btn { border:1px solid #eee; background:#fff; padding:6px 10px; border-radius:6px; cursor:pointer; min-width:36px; text-align:center; font-weight:700; }
+.cart-item .ci-actions { text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.cart-actions { margin-top:18px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.cart-total { margin-top:18px; display:flex; gap:10px; align-items:center; justify-content:flex-start; flex-wrap:wrap; }
+
+/* =========================================================
+   MISC: buttons, utilities
+   ========================================================= */
+.button-accent {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-outline {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* make sure inner card fills the column */
-.product-card-inner {
-  width: 100% !important;
-  max-width: none !important;
-  box-sizing: border-box;
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* large tablets / small desktops */
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .product-card-inner img, .product-card img { aspect-ratio: 3 / 4; }
+  .app-header .nav-center { gap: 18px; }
 }
 
-/* small screens: tighter columns */
+/* tablets */
+@media (max-width: 768px) {
+  .hero-image { height: 60vh; background-position: center bottom; }
+
+  /* product-item 2-col behaviour on tablets */
+  .product-item-mobile-2col { width: 48% !important; margin: 0 1% 20px 1% !important; min-width: 0 !important; }
+
+  .auto-scroll-track-cards > div { min-width: 260px !important; }
+  .auto-scroll-track-cards img { height: 280px; }
+  .section-heading { margin-top: 28px; }
+  .app-header .logo { font-size: 18px; padding-left: 8px; }
+}
+
+/* mobile phones */
 @media (max-width: 600px) {
-  .results-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important; gap: 14px; }
+  .product-grid { gap: 16px; grid-template-columns: repeat(1, 1fr); padding: 0 12px; }
+  .product-item-mobile-2col { width: 100% !important; max-width: 100% !important; margin-right: 0 !important; padding: 0 6px !important; min-width: 0 !important; }
+
+  .product-card-inner img, .product-card img { aspect-ratio: 4 / 5; height: auto; }
+
+  /* card paddings */
+  .product-card-inner .p-3, .product-card .p-3 { padding: 10px !important; }
+
+  /* button sizes */
+  .product-card-inner button, .product-card button { padding: 8px 10px !important; font-size: 0.95rem !important; }
+
+  /* auto-scroll narrow */
+  .auto-scroll-track-cards > div, .horizontal-scroll-container > div { min-width: 220px !important; }
+
+  /* header icons smaller */
+  .app-header .icon-btn { width: 34px; height: 34px; font-size: 16px; }
+  .app-header .icon-badge { top: -5px; right: -6px; font-size: 10px; min-width:16px; height:16px; padding:0 5px; }
+
+  /* search heading smaller */
+  .section-heading { font-size: 1.6rem; }
+
+  /* responsive cart: stack cart items */
+  .cart-item { flex-direction: column; align-items: stretch; }
+  .cart-item .ci-image { width: 100%; height: 260px; }
+  .cart-item .ci-actions { align-items: stretch; text-align: left; margin-top: 8px; }
+  .cart-total { justify-content:center; }
+  .cart-actions { justify-content:center; width:100%; }
+  .qty-btn { min-width:44px; padding:8px 12px; }
 }
+
+/* very small screens */
+@media (max-width: 420px) {
+  .product-grid { padding: 0 8px; }
+  .section-heading { font-size: 1.5rem; }
+  .app-header .container-inner { padding: 0 8px; }
+}
+
+/* =========================================================
+   Accessibility / small helpers
+   ========================================================= */
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; border: 0; padding: 0; margin: -1px; }
+.center { display:flex; align-items:center; justify-content:center; }
