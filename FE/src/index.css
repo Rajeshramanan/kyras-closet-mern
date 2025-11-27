@@ -1,0 +1,423 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* --- Global Styles & Font --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Manual Scrolling Utility (USED BY OLDER SECTIONS) --- */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  gap: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll-container > div {
+  flex-shrink: 0;
+}
+
+/* --- Hero Section --- */
+.hero-image {
+  background-image: url('/hero_banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
+  position: relative;
+}
+
+.hero-text {
+  font-family: 'Times New Roman', serif;
+  font-size: 5rem;
+  color: #A15843;
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* --- Kyra Logo Bubble --- */
+.kyra-logo-box {
+  display: inline-block;
+  padding: 15px 15px;
+  margin-right: 20px;
+  border: 2px dashed #FF784B;
+  border-radius: 50% 20% 70% 30% / 10% 80% 30% 70%;
+  text-align: center;
+}
+
+.kyra-logo-box h3 {
+  color: #FF784B;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* --- Section Heading --- */
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #FF784B;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+/* --- Footer --- */
+.footer-container {
+  background-color: #555555;
+}
+
+/* --- Rating Badge --- */
+.product-card-rating {
+  background-color: #FF784B;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --- Discount Badge --- */
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #A15843;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+/* --- Review Cards --- */
+.review-card-wrapper {
+  background-color: #FEE7DD;
+  border-radius: 8px;
+  min-width: 350px;
+  max-width: 350px;
+  padding: 15px;
+}
+
+.review-card-wrapper .card {
+  background-color: #FFFFFF;
+  border: none;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.review-rating-badge {
+  background-color: #FF784B;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Navbar Hover Effects --- */
+.navbar-nav .nav-link {
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  font-weight: 500;
+  color: #333 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar-nav .nav-link.active {
+  color: #333 !important;
+  font-weight: 500 !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #FF5100 !important;
+  border-bottom: 2px solid #FF5100;
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: #FF5100 !important;
+  border-bottom: 2px solid #FF5100 !important;
+}
+
+/* --- Product Grid (used in Trending & Offers) --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================================= */
+/* === AUTO SCROLL FOR FEATURED COLLECTIONS (works perfect) === */
+/* ========================================================= */
+
+.auto-scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.auto-scroll-track {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  animation: featuredAutoScroll 25s linear infinite;
+}
+
+@keyframes featuredAutoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ========================================================= */
+/* === AUTO SCROLL FOR "YOU MIGHT LIKE" CARDS — FIXED === */
+/* ========================================================= */
+
+.auto-scroll-wrapper-cards {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 14px;
+  box-sizing: border-box;
+}
+
+.auto-scroll-track-cards {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start !important;
+  animation: autoScrollCards 22s linear infinite;
+  box-sizing: border-box;
+}
+
+/* pause on hover */
+.auto-scroll-wrapper-cards:hover .auto-scroll-track-cards {
+  animation-play-state: paused;
+}
+
+@keyframes autoScrollCards {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Ensure scroll items maintain size and don't clip */
+.auto-scroll-track-cards > div {
+  min-width: 300px !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Prevent image clipping */
+.auto-scroll-track-cards img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ========================================================= */
+/* --- RESPONSIVE FIXES --- */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  .hero-image {
+    height: 60vh;
+    background-position: center bottom;
+  }
+
+  .product-item-mobile-2col {
+    width: 48% !important;
+    margin: 0 1% 20px 1% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* ===== Header: match original peach design ===== */
+.app-header {
+  background: #f7b9a0; /* peach-ish, adjust if your original was slightly different */
+  padding: 14px 0;
+  border-bottom: none;
+  box-shadow: none;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-header .container-inner {
+  max-width: 1400px; /* preserve wide layout */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Logo area (left) */
+.app-header .logo {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  padding-left: 16px;
+}
+
+/* Center nav */
+.app-header .nav-center {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.app-header .nav-center a {
+  color: #2b2b2b;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+.app-header .nav-center a:hover {
+  color: #111;
+  opacity: 0.9;
+}
+
+/* Right icons */
+.app-header .icons-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-right: 16px;
+}
+
+.app-header .icon-btn {
+  position: relative;        /* needed so the badge can be placed relative to this button */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  color: #111;               /* icon color */
+  text-decoration: none;
+  font-size: 18px;
+  background: transparent;
+  border-radius: 6px;
+}
+
+.app-header .icon-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.app-header .icon-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 12px;
+  background: #222;       /* dark badge */
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.9); /* subtle thin border so badge pops on peach */
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.app-header .icon-badge.light {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* smaller screens tweak so badges don't overflow */
+@media (max-width: 600px) {
+  .app-header .icon-btn { width: 34px; height: 34px; font-size: 16px; }
+  .app-header .icon-badge { top: -5px; right: -6px; font-size: 10px; min-width:16px; height:16px; padding:0 5px; }
+}
+
+/* Small screens: keep layout compact */
+@media (max-width: 900px) {
+  .app-header .nav-center { gap: 14px; }
+  .app-header .logo { font-size: 18px; padding-left: 12px; }
+  .app-header .icons-right { gap: 12px; padding-right: 12px; }
+}
+
+/* small search input responsive tweak */
+@media (max-width: 560px) {
+  .section-heading { font-size: 1.6rem; }
+}
+
+/* ===== Search / Results grid & flexible card fix ===== */
+.results-grid {
+  display: grid !important;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure the outer search container uses most available width */
+.page-container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Make ProductCard wrapper flexible so grid controls its width */
+.product-card-flex {
+  width: 100% !important;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* make sure inner card fills the column */
+.product-card-inner {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+}
+
+/* small screens: tighter columns */
+@media (max-width: 600px) {
+  .results-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important; gap: 14px; }
+}

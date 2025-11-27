@@ -49,7 +49,7 @@
 
       return (
           <>
-              <Header />
+             
               <main>
                   <Hero />
                   <div style={{ backgroundColor: '#f0f0f0' }}> 
@@ -61,7 +61,7 @@
                       <YouMightLikeSection products={products} />
                   </div>
               </main>
-              <Footer />
+              
           </>
       );
   };

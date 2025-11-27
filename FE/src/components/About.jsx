@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const ABOUT_IMAGE = '/about_model.png'; 
 
@@ -62,7 +63,7 @@ const About = () => {
                 bring out your confidence and charm in every moment. Explore looks that 
                 feel as good as they look.
             </p>
-            
+            <LinkContainer to="/about">
             <Button 
                 variant="dark" 
                 style={{ 
@@ -75,6 +76,7 @@ const About = () => {
             >
                 Know More
             </Button>
+            </LinkContainer>
         </Col>
 
         {/* Desktop Image - nomobile)*/}
